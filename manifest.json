@@ -1,12 +1,20 @@
 {
     "manifest_version": 2,
-    "name": "closeunusedblanktabs",
-    "version": "0.0.7",
-    "description": "Closes unused blank tabs",
+    "name": "closeunusedtabs_reloaded",
+    "version": "1.0.0",
+    "description": "Every time a new tab is created, all matching tabs will be closed (except the active tab)",
     "permissions": [
         "tabs"
     ],
+    "icons": {
+        "64": "icons/icon.png"
+    },
     "background": {
-        "scripts": ["closeunusedblanktabs.js"]
+        "scripts": [
+            "background/closeunusedtabs.js"
+        ]
+    },
+    "options_ui": {
+        "page": "options/index.html"
     }
 }
