@@ -13,18 +13,15 @@ Contact the author at http://www.dustinluck.com/contact
 */
 
 const stateComplete = "complete"
-const blankTabUrls = ['about:blank', 'about:home', 'about:newtab', 'about:privatebrowsing'];
+const blankTabUrls = ['about:blank', 'about:home', 'about:newtab', 'about:privatebrowsing', 'moz-extension://1c371778-b2ea-4a7d-ad76-dec3f62aa6ed/app.html', 'git.inpt.fr'];
 
-function handleCreated(sourceTab)
-{
-    chrome.tabs.query({windowId: sourceTab.windowId}, function(tabs)
-    {
+function handleCreated(sourceTab) {
+    chrome.tabs.query({ windowId: sourceTab.windowId }, function (tabs) {
         for (var tab of tabs) {
-            if (! tab.active
+            if (!tab.active
                 && tab.id !== sourceTab.id
                 && tab.status === stateComplete
-                && blankTabUrls.includes(tab.url))
-            {
+                && blankTabUrls.includes(tab.url)) {
                 chrome.tabs.remove(tab.id);
             }
         }

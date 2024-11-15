@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "description": "Every time a new tab is created, all matching tabs will be closed (except the active tab)",
     "permissions": [
+        "storage",
         "tabs"
     ],
     "icons": {
@@ -11,10 +12,15 @@
     },
     "background": {
         "scripts": [
-            "background/closeunusedtabs.js"
+            "src/background/closeunusedtabs.js"
         ]
     },
     "options_ui": {
-        "page": "options/index.html"
+        "page": "src/options/index.html"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "addon@example.com"
+        }
     }
 }
